@@ -107,7 +107,6 @@ workflows:
                   # CM_KEYSTORE_PASSWORD <-- Put your keystore password here
                   # CM_KEY_ALIAS_PASSWORD <-- Put your keystore alias password here
                   # CM_KEY_ALIAS_USERNAME <-- Put your keystore alias username here
-                - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS <-- Put your google-services.json)
                 - other
             node: latest
         triggering:
@@ -157,11 +156,3 @@ workflows:
                 ./gradlew assembleRelease
         artifacts:
             - android/app/build/outputs/**/*.apk
-        publishing:
-            email:
-                recipients:
-                    - user1@example.com
-                    - user2@example.com
-            google_play:                          # For publishing your Android app to Google Play
-                credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-                track: alpha                      # Name of the track: internal, alpha, beta, production
